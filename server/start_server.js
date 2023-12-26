@@ -4,4 +4,4 @@ let port = 5000
 
 http.createServer(server).listen(port)
 
-console.log(`server listening on port ${port}`)
+console.log(`server live on http://localhost:${port}`)

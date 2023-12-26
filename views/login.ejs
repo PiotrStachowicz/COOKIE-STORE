@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title> Cookie Store </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+
+  <body>
+    <header class="UpperBar">
+        <a class="hyperlink" href="http://localhost:5000" methods="get">
+        cookie store
+        </a>
+        <a class="hyperlink" href="http://localhost:5000/logout" methods="post">
+        logout
+        </a>
+    </header>
+    <div>
+        <form method="post" action="http://localhost:5000/login?type=login">
+            <input name="username">
+            <input name="password">
+            <button>login</button>
+            <a> <%=message %> </a>
+        </form>
+    </div>
+    <div>
+      <form method="post" action="http://localhost:5000/login?type=register">
+        <input name="username">
+        <input name="password">
+        <button>register</button>
+        <a> <%=message %> </a>
+    </form>
+    </div>
+
+  </body>
+</html>

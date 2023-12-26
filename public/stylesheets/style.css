@@ -1,30 +1,23 @@
-body {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  background-color: #FFFBF5
+.hyperlink{
+  text-decoration: none;
+  color: black;
+  margin: 0 5px;
 }
 
-.UpperStrip{
+.UpperBar {
   display: flex;
-  background-color: #F7EFE5;
-  justify-content: left;
+  justify-content: space-between;
   align-items: center;
-  flex-direction: row;
-  height: 100px;
-  box-shadow: 0 20px 15px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 0, 0, 0.1);
   font-size: large;
-  font-family: Bahnschrift, B, serif;
-  color: #222831;
+  font-family: Arial, Helvetica, sans-serif;
+  
 }
 
-.StoreLogo{
+.right-section {
   display: flex;
-  width: 100px;
-  height: 100px;
-  margin: 0;
+  align-items: center;
 }
 
-.StoreName{
-  margin: 10px;
+body { 
+  background-color: #F1F0EC;
 }
