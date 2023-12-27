@@ -1,5 +1,5 @@
-let express = require('express');
-let router = express.Router();
+let express = require('express')
+let router = express.Router()
 
 router.get('/', function(req, res, next) {
   console.log(`get request on /logout`)
@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
     res.cookie('user', '', {maxAge: -1})
   }
   res.cookie('cart', {}, {maxAge: -1})
-  res.redirect('/');
+  res.redirect('/')
 });
 
-module.exports = router;
+module.exports = router

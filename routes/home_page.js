@@ -1,15 +1,7 @@
 let express = require('express');
 let router = express.Router();
 let fs = require('fs')
-//let authorize = require('authorize') WTD
-const COOKIE_EXPIRATION_TIME = 30 * 24 * 60 * 60 * 1000 // 30 days
-
-function loggedf(req){
-  if(req.signedCookies['admin'] != undefined || req.signedCookies['user'] != undefined){
-    return true
-  }
-  return false
-}
+const COOKIE_EXPIRATION_TIME = 2592000000 // 30 days in ms
 
 function get_product(products, id){
   for(const product of products){
@@ -40,6 +32,8 @@ async function handle_request(req, res, next) {
 
   if(req.signedCookies['cart'] != undefined){
     count = req.signedCookies['cart'].cart.length
+  }else{
+    res.cookie('cart', {cart: []}, {signed: true, maxAge: COOKIE_EXPIRATION_TIME})
   }
 
   for(const product of products_array){
@@ -59,16 +53,16 @@ async function handle_request(req, res, next) {
     username = req.signedCookies.user
     logged = true
   }
+
   let id = req.query.id
+
   if(id != undefined && req.signedCookies['cart'] != undefined){
     new_cart = req.signedCookies['cart'].cart
     new_cart.push(get_product(products, id))
     res.cookie('cart', {cart: new_cart}, {signed: true, maxAge: COOKIE_EXPIRATION_TIME})
     count = new_cart.length
   }
-  if(req.signedCookies['cart'] == undefined){
-    res.cookie('cart', {cart: []}, {signed: true, maxAge: COOKIE_EXPIRATION_TIME})
-  }
+  
   res.render('home', { username: username, logged: logged, admin: admin, products: products, count: count });
 };
 
