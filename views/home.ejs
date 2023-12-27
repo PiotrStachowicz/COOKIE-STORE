@@ -13,6 +13,17 @@
       </a>
       <div class="right-section">
         <a class="hyperlink"> <%= username %> </a> 
+        <a class="hyperlink" href="https://localhost:5000/cart" methods="post">
+          cart
+        </a>
+        <a><%= count %></a>
+        <% if(logged === true){ %>
+        <% } %>
+        <% if(admin === true){ %>
+          <a class="hyperlink" href="https://localhost:5000/manage" methods="post">
+            manage
+          </a>
+        <% } %>
         <a class="hyperlink" href="https://localhost:5000/login" methods="post">
           login
         </a>
@@ -22,9 +33,17 @@
       </div>
     </header>
 
-    <div class="">
+    <div class="products">
+      <% for(const product of products){ %>
+        <form method="post" action="/?id=<%=product.id%>">
+          <div class="product">
+            <%= product.name %>
+            <%= product.price %>
+          </div>
+          <button>add to cart</button>
+        </form>
+      <% } %>
       
     </div>
-  
   </body>
 </html>

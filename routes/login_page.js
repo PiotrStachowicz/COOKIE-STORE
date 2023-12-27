@@ -5,6 +5,7 @@ let fs = require('fs')
 //let authorize = require('authorize') WTD
 let admin_username = 'gacek'
 let admin_password = '1234'
+const COOKIE_EXPIRATION_TIME = 30 * 24 * 60 * 60 * 1000 // 30 days
 
 async function check(file, username){
   let buffer = await fs.promises.readFile(file)
@@ -33,13 +34,18 @@ router.post('/', async function(req, res, next) {
   let username = req.body.username
   let password = req.body.password
   let type = req.query['type']
+  
   if(type === 'login'){
     let psswrd = await check('server/database/logindata.txt', username)
     if(username === admin_username && password === admin_password){
-      res.cookie("admin", username, {signed: true, maxAge: 50000})
+      res.cookie("admin", username, {signed: true, maxAge: COOKIE_EXPIRATION_TIME})
+      res.cookie('cart', {cart: []}, {signed: true, maxAge: COOKIE_EXPIRATION_TIME})
+      res.cookie('user', '', {maxAge: -1})
       res.redirect('/')
     }else if(psswrd !== undefined && await bcrypt.compare(password, psswrd)){
-      res.cookie("admin", username, {signed: true, maxAge: 50000})
+      res.cookie("user", username, {signed: true, maxAge: COOKIE_EXPIRATION_TIME})
+      res.cookie('cart', {cart: []}, {signed: true, maxAge: COOKIE_EXPIRATION_TIME})
+      res.cookie('admin', '', {maxAge: -1})
       res.redirect('/');
     }else{
       res.render('login', {message: 'incorrect username or password', message1: ''});
@@ -48,6 +54,8 @@ router.post('/', async function(req, res, next) {
     if(await check('server/database/logindata.txt', username) === undefined && username != 'gacek'){
       save(username, password)
       res.cookie("user", username, {signed: true})
+      res.cookie('cart', {cart: []}, {signed: true, maxAge: COOKIE_EXPIRATION_TIME})
+      res.cookie('admin', '', {maxAge: -1})
       res.redirect('/');
     }else{
       res.render('login', {message: '', message1: 'username already exists'});

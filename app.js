@@ -6,7 +6,7 @@ let cookie_parser = require('cookie-parser')
 let home_router = require('./routes/home_page')
 let login_router = require('./routes/login_page')
 let logout_router = require('./routes/logout_page')
-
+let cart_router = require('./routes/cart_page')
 let app = express()
 
 // view engine setup
@@ -23,6 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', home_router)
 app.use('/login', login_router)
 app.use('/logout', logout_router)
+app.use('/cart', cart_router)
 
 
 

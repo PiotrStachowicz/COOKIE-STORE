@@ -5,9 +5,12 @@ router.get('/', function(req, res, next) {
   console.log(`get request on /logout`)
   if(req.signedCookies['admin']){
     res.cookie('admin', '', {maxAge: -1})
-  }else if(req.signedCookies['user']){
+    
+  }
+  if(req.signedCookies['user']){
     res.cookie('user', '', {maxAge: -1})
   }
+  res.cookie('cart', {}, {maxAge: -1})
   res.redirect('/');
 });
 
