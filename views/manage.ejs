@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title> cookie store </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+
+  <body>
+    <div>
+        <form method="post" action="https://localhost:5000/manage?type=add">
+            product id <input name="id">
+            product name<input name="name">
+            product price<input name="price">
+            <button>add</button>
+            <a> <%=message1 %> </a>
+        </form>
+    </div>
+    <div>
+      <form method="post" action="https://localhost:5000/manage?type=delete">
+          product id <input name="id">
+          <button>delete</button>
+          <a> <%=message2 %> </a>
+      </form>
+    </div>
+    <div>
+      <a href="https://localhost:5000" class="hyperlink">go back</a>
+    </div>
+  </body>
+</html>

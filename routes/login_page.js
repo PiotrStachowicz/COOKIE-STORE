@@ -40,7 +40,7 @@ router.post('/', async function(req, res, next) {
       if(req.signedCookies['admin'] == undefined){
         res.cookie("admin", username, {signed: true, maxAge: COOKIE_EXPIRATION_TIME})
       }
-      if(req.signedCookies['cart'] != undefined){
+      if(req.signedCookies['cart'] == undefined){
         res.cookie('cart', {cart: []}, {signed: true, maxAge: COOKIE_EXPIRATION_TIME})
       }
       res.cookie('user', '', {maxAge: -1})

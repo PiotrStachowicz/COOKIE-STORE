@@ -1,6 +1,5 @@
 function authorize(req, res, next){
-    if(req.signedCookies.user){
-        res.user = req.signedCookies.user
+    if(req.signedCookies['admin']){
         next()
     }else{
         res.redirect('/')
