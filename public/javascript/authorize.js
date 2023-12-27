@@ -5,3 +5,5 @@ function authorize(req, res, next){
         res.redirect('/')
     }
 }
+
+module.exports = authorize

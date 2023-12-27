@@ -1,1 +1,1 @@
-1,ciastko czekoladowe,12;2,ciastko z orzechami,32;
+2,ciastko z warzywami XD,24;3,ciastko oreo,16;;1,ciasteczko,12;

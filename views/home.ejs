@@ -37,8 +37,8 @@
       <% for(const product of products){ %>
         <form method="post" action="/?id=<%=product.id%>">
           <div class="product">
-            <%= product.name %>
-            <%= product.price %>
+            <div><%= product.name %></div>
+            <div><%= product.price %>$</div>
           </div>
           <button>add to cart</button>
         </form>
