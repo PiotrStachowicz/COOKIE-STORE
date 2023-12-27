@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> cookie store </title>
 </head>
 <body>
-    cart..
-    <a class="hyperlink" href="https://localhost:5000">go back</a>
+    <div class="UpperBar">
+        <% let sum = 0 %>
+        <% for(const item of products){ %>
+            <div><%=item.id%></div>
+            <% sum += +item.price %>
+        <% } %>
+        <%= sum %>
+        <a class="hyperlink" href="https://localhost:5000">go back</a>
+    </div>
 </body>
 </html>

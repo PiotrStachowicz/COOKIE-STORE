@@ -1,1 +1,1 @@
-id1,name1,cena1;id2,name2,cena2;
+id1,name1,12;id2,name2,32;

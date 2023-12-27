@@ -11,6 +11,15 @@ function loggedf(req){
   return false
 }
 
+function get_product(products, id){
+  for(const product of products){
+    if(id === product.id){
+      return product
+    }
+  }
+  return undefined
+}
+
 router.route('/')
   .get(async function(req, res, next) {
     console.log(`get request on /`);
@@ -53,7 +62,7 @@ async function handle_request(req, res, next) {
   let id = req.query.id
   if(id != undefined && req.signedCookies['cart'] != undefined){
     new_cart = req.signedCookies['cart'].cart
-    new_cart.push(id)
+    new_cart.push(get_product(products, id))
     res.cookie('cart', {cart: new_cart}, {signed: true, maxAge: COOKIE_EXPIRATION_TIME})
     count = new_cart.length
   }
