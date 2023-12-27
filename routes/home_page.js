@@ -10,7 +10,6 @@ router.get('/', function(req, res, next) {
   }else if(req.signedCookies.user){
     username = req.signedCookies.user
   }
-  console.log(username)
   res.render('home', { username: username });
 });
 
