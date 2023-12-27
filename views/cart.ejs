@@ -3,16 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
     <title> cookie store </title>
 </head>
 <body>
-    <div class="UpperBar">
+    <div class="cart">
         <% let sum = 0 %>
+        <% let set = [] %>
+        <% console.log(set) %>
         <% for(const item of products){ %>
-            <div><%=item.id%></div>
-            <% sum += +item.price %>
+            <% if(!set.includes(item.id)){ %>
+                <% let count = 0 %>
+                <% set.push(item.id) %>
+                <% products.forEach(elem => { %>
+                    <% if(elem.id === item.id){ %>
+                    <%    count++ %>
+                    <% } %>
+                <% }) %>
+                <div>
+                    <a><%= item.name %> x <%= count%></a>
+                    <a><%= (+item.price)*(count) %>$</a>
+                </div>
+                <% sum += (+item.price)*count %>
+            <% } %>
         <% } %>
-        <%= sum %>
+        sum is <%= sum %>$
         <a class="hyperlink" href="https://localhost:5000">go back</a>
     </div>
 </body>

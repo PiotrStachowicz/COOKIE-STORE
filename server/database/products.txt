@@ -1,1 +1,1 @@
-id1,name1,12;id2,name2,32;
+1,ciastko czekoladowe,12;2,ciastko z orzechami,32;
