@@ -6,25 +6,31 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
 
-  <body>
-    <div>
-        <form method="post" action="https://localhost:5000/manage?type=add">
-            product id <input name="id">
-            product name<input name="name">
-            product price<input name="price">
-            <button>add</button>
-            <a> <%=message1 %> </a>
+  <body class="goback">
+    <div class="manage">
+      <div>
+        <form class="form" method="post" action="https://localhost:5000/manage?type=add">
+          <a class="heading">add product</a>
+            <input class="input" name="id" placeholder="id">
+            <input class="input" name="name" placeholder="name">
+            <input class="input" name="price" placeholder="price">
+            <button class="btn">add</button>
         </form>
+        <a> <%=message1 %> </a>
+      </div>
+      <div>
+        <form class="form" method="post" action="https://localhost:5000/manage?type=delete">
+          <a class="heading">delete product</a>
+            <input class="input" name="id" placeholder="id">
+            <button class="btn">delete</button>
+        </form>
+        <a> <%=message2 %> </a>
+      </div>
     </div>
     <div>
-      <form method="post" action="https://localhost:5000/manage?type=delete">
-          product id <input name="id">
-          <button>delete</button>
-          <a> <%=message2 %> </a>
+      <form method="post" action="https://localhost:5000/">
+          <button class="logo">go back</button>
       </form>
-    </div>
-    <div>
-      <a href="https://localhost:5000" class="hyperlink">go back</a>
     </div>
   </body>
 </html>

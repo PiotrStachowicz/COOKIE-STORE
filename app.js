@@ -8,6 +8,7 @@ let login_router = require('./routes/login_page')
 let logout_router = require('./routes/logout_page')
 let cart_router = require('./routes/cart_page')
 let manage_router = require('./routes/manage_page')
+let register_router = require('./routes/register_page')
 let app = express()
 
 // view engine setup
@@ -26,6 +27,7 @@ app.use('/login', login_router)
 app.use('/logout', logout_router)
 app.use('/cart', cart_router)
 app.use('/manage', manage_router)
+app.use('/register', register_router)
 
 
 

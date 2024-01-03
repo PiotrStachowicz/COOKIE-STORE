@@ -7,6 +7,24 @@
   margin-bottom: 50px;
 }
 
+.manage {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.manage > *{
+  margin: 50px;
+}
+
+.goback{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .cart {
   display: flex;
   flex-direction: column;
@@ -172,8 +190,8 @@ body {
   background-color: #212121;
   padding: 2.5em;
   border-radius: 25px;
-  width: 200px;
-  height: 200px;
+  width: 400px;
+  height: 400px;
   transition: .4s ease-in-out;
   box-shadow: rgba(0, 0, 0, 0.4) 1px 2px 2px;
 }
