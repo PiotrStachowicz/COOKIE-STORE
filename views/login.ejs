@@ -8,29 +8,32 @@
 
   <body>
     <header class="UpperBar">
-        <a class="hyperlink" href="https://localhost:5000" methods="get">
-        cookie store
-        </a>
-        <a class="hyperlink" href="https://localhost:5000/logout" methods="post">
-        logout
-        </a>
-    </header>
-    <div>
-        <form method="post" action="https://localhost:5000/login?type=login">
-            <input name="username">
-            <input name="password">
-            <button>login</button>
-            <a> <%=message %> </a>
+      <form method="get" action="https://localhost:5000">
+        <button class="logo">
+          cookie store
+        </button>
+      </form>
+        <form method="get" action="https://localhost:5000/logout">
+          <button class="logo">
+            logout
+          </button>
         </form>
+    </header>
+    <div class="loginpage">
+      <form class="form" method="post" action="https://localhost:5000/login?type=login">
+        <a class="heading">Login</a>
+          <input class="input" name="username" placeholder="username">
+          <input class="input" name="password" placeholder="password">
+          <button class="btn">login</button>
+          <a> <%=message %> </a>
+      </form>
+      <form class="form" method="post" action="https://localhost:5000/login?type=register">
+        <a class="heading">Register</a>
+          <input class="input" name="username" placeholder="username">
+          <input class="input" name="password" placeholder="password">
+          <button class="btn">register</button>
+          <a> <%=message1 %> </a>
+      </form>
     </div>
-    <div>
-      <form method="post" action="https://localhost:5000/login?type=register">
-        <input name="username">
-        <input name="password">
-        <button>register</button>
-        <a> <%= message1 %> </a>
-    </form>
-    </div>
-
   </body>
 </html>

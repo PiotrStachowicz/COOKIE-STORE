@@ -3,6 +3,7 @@ let router = express.Router()
 let authorize = require('../public/javascript/authorize')
 let fs = require('fs')
 
+// CHANGE FROM TXT TO DATABASE
 async function check_if_id_exists(id){
     let buffer = await fs.promises.readFile('server/database/products.txt')
     let buffer_array = buffer.toString().split(';')

@@ -36,7 +36,6 @@ async function handle_request(req, res, next) {
   let products_buffer = await fs.promises.readFile('server/database/products.txt')
   let products_array = products_buffer.toString().split(';')
   let products = []
-  let count = 0
 
   if(req.signedCookies['cart'] != undefined){
     count = req.signedCookies['cart'].cart.length
@@ -44,6 +43,7 @@ async function handle_request(req, res, next) {
     res.cookie('cart', {cart: []}, {signed: true, maxAge: COOKIE_EXPIRATION_TIME})
   }
 
+  // CHANGE FROM TXT TO DATABASE
   for(const product of products_array){
     let product_id = product.split(',')[0]
     let product_name = product.split(',')[1]
@@ -69,11 +69,10 @@ async function handle_request(req, res, next) {
       new_cart = req.signedCookies['cart'].cart
       new_cart.push(get_product(products, id))
       res.cookie('cart', {cart: new_cart}, {signed: true, maxAge: COOKIE_EXPIRATION_TIME})
-      count = new_cart.length
     }
   }
   
-  res.render('home', { username: username, logged: logged, admin: admin, products: products, count: count });
+  res.render('home', { username: username, logged: logged, admin: admin, products: products});
 };
 
 module.exports = router;
