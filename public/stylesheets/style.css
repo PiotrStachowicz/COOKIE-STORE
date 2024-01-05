@@ -133,12 +133,12 @@ body {
 }
 
 .card::after {
-  content: "Add to Cart";
+  content: "Add";
   padding-top: 1.25em;
   padding-left: 1.25em;
   position: absolute;
-  left: 0;
-  background: #00AC7C;
+  background: #00dca2;
+  bottom: -100px;
   color: #fff;
   height: 2.5em;
   width: 90%;
@@ -146,6 +146,7 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   opacity: 0;
+  pointer-events: none;
 }
 
 .card .title {
@@ -167,8 +168,18 @@ body {
   color: #000;
 }
 
+.card:hover::after {
+  bottom: 0;
+  opacity: 1;
+  transition-delay: 0.1s;
+}
+
 .card:active {
   transform: scale(0.9);
+}
+
+.card:active::after {
+  pointer-events: none;
 }
 
 .card:hover {

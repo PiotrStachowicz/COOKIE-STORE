@@ -29,7 +29,7 @@ router.post('/', async function(req, res, next) {
   console.log(`post request on /register`)
   let username = req.body.username
   let password = req.body.password
-  if(await check_if_user_exists(username) === undefined && username != 'gacek'){
+  if(await check_if_user_exists(username) === undefined && username != 'Admin'){
     await save_user_info(username, password)
     res.cookie("user", username, {signed: true})
     if(req.signedCookies['cart'] == undefined){

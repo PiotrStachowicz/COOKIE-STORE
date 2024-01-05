@@ -1,7 +1,7 @@
 let server = require('../app.js')
 let https = require('https')
 var fs = require('fs')
-let port = 5000
+let port = 1024
 
 async function start_server(){
     var pfx = await fs.promises.readFile('./server/certificate.pfx')

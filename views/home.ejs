@@ -8,14 +8,14 @@
 
   <body>
     <header class="UpperBar">
-      <form method="get" action="https://localhost:5000">
+      <form method="get" action="https://localhost:1024">
         <button class="logo">
           cookie store
         </button>
       </form>
       <div class="right-section">
         <a class="username"> <%= username %> </a> 
-        <form method="get" action="https://localhost:5000/cart">
+        <form method="get" action="https://localhost:1024/cart">
             <button class="logo">
               cart
             </button>
@@ -23,18 +23,18 @@
         <% if(logged === true){ %>
         <% } %>
         <% if(admin === true){ %>
-          <form method="get" action="https://localhost:5000/manage">
+          <form method="get" action="https://localhost:1024/manage">
             <button class="logo">
               manage
             </button>
           </form>
         <% } %>
-        <form method="get" action="https://localhost:5000/login">
+        <form method="get" action="https://localhost:1024/login">
           <button class="logo">
             login
           </button>
         </form>
-        <form method="get" action="https://localhost:5000/logout">
+        <form method="get" action="https://localhost:1024/logout">
           <button class="logo">
             logout
           </button>
